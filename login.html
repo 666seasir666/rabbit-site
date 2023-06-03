@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小兔鲜-登录</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="shortcut icon" href="http://erabbit.itheima.net/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <!-- 头部 -->
+        <div class="login-header">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="./index.html"></a>
+                </h1>
+                <h3 class="sub">
+                    欢迎登录
+                </h3>
+                <a href="./index.html" class="entry">
+                    进入网站首页
+                    <i class="iconfont icon-angle-right"></i>
+                    <i class="iconfont icon-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- 中间-登录、注册 -->
+        <div class="login-section">
+            <div class="wrapper">
+                <nav>
+                    <a href="javascript:;" class="active account-btn">账户登录</a>
+                    <a href="javascript:;" class="active scan-btn">扫码登录</a>
+                </nav>
+
+                <div class="qrcode-box" style="display: none;"> <!-- 用 js 修改 display 的值就行 -->
+                    <img src="http://erabbit.itheima.net/img/qrcode.5372a064.jpg" alt="">
+                    <p>打开
+                        <a href="">小兔鲜App</a>
+                        登录
+                    </p>
+                </div>
+                
+
+                <div class="account-box">
+                    <div class="toggle">
+                        <a href="">
+                            <i class="iconfont icon-msg">
+                                <p>使用短信登录</p>
+                            </i>
+                            
+                        </a>
+                    </div>
+                    <form class="form">
+                        <div class="form-item">
+                            <div class="input">
+                                <i class="iconfont icon-user"></i>
+                                <input class="user-input" modelvalue="xiaotuxian001" type="text"  placeholder="请输入用户名" name="account" id="uname" onblur="checkId">
+                            </div>
+                            <div class="error pwd-warn">
+                                <i class="iconfont icon-warning"></i>
+                                字母开头且6-20个字符
+                            </div> 
+                        </div>
+
+                        <div class="form-item">
+                            <div class="input">
+                                <i class="iconfont icon-lock"></i>
+                                <input class="user-input" modelvalue="xiaotuxian001" type="password"  placeholder="请输入密码" name="account" id="password" onblur="checkId">
+                            </div>
+                            <div class="error pwd-warn">
+                                <i class="iconfont icon-warning"></i>
+                                密码6-24个字符
+                            </div>
+                        </div>
+
+                        <div class="form-item">
+                            <div class="agree">
+                                <div class="xtx-checkbox" name="isAgree" value="true">
+                                    <label>
+                                        <input type="checkbox" id="agreement">
+                                        我已同意
+                                        <a href="#" class="yinsi" style="font-size: 14px;">《隐私条款》</a>
+                                        <span>和</span>
+                                        <a href="#" class="yinsi" style="font-size: 14px;">《服务条款》</a>
+                                    </label>
+                                    <!-- <p id="tip">请您勾选同意协议</p> -->
+                                </div>
+                            </div>
+                            <div class="error">
+                                <p class="iconfont icon-warning" id="tip">请勾选登录协议</p>
+                            </div>
+                            <a href="#" class="btn login-btn" onclick="login()">登录</a>
+                        </div>
+                    </form>
+                    <div class="action">
+                        <a href="https://graph.qq.com/oauth2.0/authorize?client_id=101941968&response_type=token&scope=all&redirect_uri=http%3A%2F%2Ferabbit.itheima.net%2F%23%2Flogin%2Fcallback">
+                            <img src="https://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_7.png" alt="#">
+                        </a>
+                        <div class="url">
+                            <a href="#">忘记密码</a>
+                            <a href="#">免费注册</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 底部-关于我们 -->
+        <div class="login-footer">
+            <div class="containerr">
+                <p class="guanyu">
+                    <a href="#">关于我们</a><span>|</span>
+                    <a href="#">帮助中心</a><span>|</span>
+                    <a href="#">售后服务</a><span>|</span>
+                    <a href="#">配送与验收</a><span>|</span>
+                    <a href="#">商务合作</a><span>|</span>
+                    <a href="#">搜索推荐</a><span>|</span>
+                    <a href="#">友情链接</a>
+                </p>
+                <p>CopyRight © 小兔鲜儿</p>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引入 js 文件 -->
+<script src="../rabbit-site/js/index.js"></script>
+<script src="./js/login.js"></script>
+</html>
