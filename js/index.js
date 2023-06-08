@@ -1,6 +1,6 @@
 // 定义定时器
 let timer = null
-let currentIndex = 0 // 这个 currentIndex 就是为了控制切换的图片，名字随便取得？
+let currentIndex = 0 // 这个 currentIndex 就是为了控制切换的图片
 
 // 获取轮播图父盒子
 const carouselBox = document.querySelector('.carousel-box')
