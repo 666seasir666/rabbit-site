@@ -10,7 +10,7 @@ const prevBtn = document.querySelector('.icon-angle-left')
 
 // 监听按钮点击事件 点击上一张按钮就会调用 clickPrevBtn 函数
 prevBtn.addEventListener('click', clickPrevBtn)
-function clickPrevBtn () {
+function clickPrevBtn() {
     console.log('click prev btn');
     prev()
 }
@@ -20,7 +20,7 @@ const nextBtn = document.querySelector('.icon-angle-right') // nextBtn后面为�
 
 // 监听按钮点击事件 点击下一张按钮就会调用 clickNextBtn 函数
 nextBtn.addEventListener('click', clickNextBtn)
-function clickNextBtn () {
+function clickNextBtn() {
     console.log('click next btn');
     next()
 }
@@ -32,7 +32,7 @@ const itemsBox = document.querySelector('.carousel-indicator').querySelector('ol
 const items = itemsBox.querySelectorAll('li')
 // 监听小圆点父元素点击事件
 itemsBox.addEventListener('click', clickitemsBox)
-function clickitemsBox (e) {
+function clickitemsBox(e) {
     // 清除上一个类名 直接在 currentIndex 修改前移除
     items[currentIndex].classList.remove('current')
     currentIndex = e.target.dataset.index
@@ -103,3 +103,27 @@ function stop() {
 }
 
 swipe()
+
+// 获取电梯父级元素
+const elevator = document.querySelector('.xtx-elevator')
+console.log(elevator);
+// 1.当页面滚动大于300像素，就显示电梯导航
+// 2.给页面添加滚动事件
+window.addEventListener('scroll', function () {
+    const n = document.documentElement.scrollTop
+    // if (n >= 300) {
+    //     elevator.style.opacity = 1
+    // } else {
+    //     elevator.style.opacity = 0
+    // }
+    //三元运算符-简写
+    elevator.style.opacity = n >= 300 ? 1 : 0
+})
+
+// 点击返回页面顶部
+// 1.获取返回按钮
+const backTop = document.querySelector('#backTop')
+// 2.添加返回点击事件
+backTop.addEventListener('click', function () {
+    document.documentElement.scrollTop = 0
+})
