@@ -104,26 +104,55 @@ function stop() {
 
 swipe()
 
-// 获取电梯父级元素
-const elevator = document.querySelector('.xtx-elevator')
-console.log(elevator);
-// 1.当页面滚动大于300像素，就显示电梯导航
-// 2.给页面添加滚动事件
-window.addEventListener('scroll', function () {
-    const n = document.documentElement.scrollTop
-    // if (n >= 300) {
-    //     elevator.style.opacity = 1
-    // } else {
-    //     elevator.style.opacity = 0
-    // }
-    //三元运算符-简写
-    elevator.style.opacity = n >= 300 ? 1 : 0
-})
 
-// 点击返回页面顶部
-// 1.获取返回按钮
-const backTop = document.querySelector('#backTop')
-// 2.添加返回点击事件
-backTop.addEventListener('click', function () {
-    document.documentElement.scrollTop = 0
-})
+    //第一大模块，页面滑动可以显示和隐藏
+    // 获取电梯父级元素
+    // const elevator = document.querySelector('.xtx-elevator')
+    // // 获取轮播图距离页面顶部位置
+    // const home_entry = document.querySelector('.home-entry')
+    // // 1.当页面滚动大于300像素，就显示电梯导航
+    // // 2.给页面添加滚动事件
+    // window.addEventListener('scroll', function () {
+    //     const n = document.documentElement.scrollTop
+    //     // if (n >= 300) {
+    //     //     elevator.style.opacity = 1
+    //     // } else {
+    //     //     elevator.style.opacity = 0
+    //     // }
+    //     //三元运算符-简写
+    //     elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
+    // })
+
+    // // 点击返回页面顶部
+    // // 1.获取返回按钮
+    // const backTop = document.querySelector('#backTop')
+    // // 2.添加返回点击事件
+    // backTop.addEventListener('click', function () {
+    //     document.documentElement.scrollTop = 0
+    // })
+
+    // (function () {
+    //     const elevator = document.querySelector('.xtx-elevator')
+    //     // 获取轮播图距离页面顶部位置
+    //     const home_entry = document.querySelector('.home-entry')
+    //     // 1.当页面滚动大于300像素，就显示电梯导航
+    //     // 2.给页面添加滚动事件
+    //     window.addEventListener('scroll', function () {
+    //         const n = document.documentElement.scrollTop
+    //         // if (n >= 300) {
+    //         //     elevator.style.opacity = 1
+    //         // } else {
+    //         //     elevator.style.opacity = 0
+    //         // }
+    //         //三元运算符-简写
+    //         elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
+    //     })
+
+    //     // 点击返回页面顶部
+    //     // 1.获取返回按钮
+    //     const backTop = document.querySelector('#backTop')
+    //     // 2.添加返回点击事件
+    //     backTop.addEventListener('click', function () {
+    //         document.documentElement.scrollTop = 0
+    //     })
+    // })()
