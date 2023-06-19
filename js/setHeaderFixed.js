@@ -45,7 +45,7 @@ function watchScroll() {
     // 2.获取右侧导航栏li的父元素
     const list = document.querySelector('.xtx-elevator-list')
     list.addEventListener('click', function (e) {
-        if (e.target.tagNane === 'A' && e.target.dataset.name) {
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
             // 本身没有active类名,先获取这个类名
             const old = document.querySelector('.xtx-elevator-list .active')
             // console.log(old);  //会找不到这个类名 返回null
@@ -56,8 +56,8 @@ function watchScroll() {
             // 当前元素添加active类
             e.target.classList.add('active')  //事件委托
             // console.log(e.target);
-            //console.log(e.target.dataset.name);  //获取自定义属性
-            const top = (document.querySelector(`.${e.target.dataset.name}`).offsetTop); //获取对应大盒子的offsetTop
+            console.log(e.target.dataset.name);  //获取自定义属性
+            const top = (document.querySelector(`.home-${e.target.dataset.name}`).offsetTop); //获取对应大盒子的offsetTop
             // 让页面滚动到对应的位置
             document.documentElement.offsetTop = top
             console.log(top);

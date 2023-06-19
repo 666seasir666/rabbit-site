@@ -1,3 +1,9 @@
+/* 页面滚动 */
+html {
+  /* 让滚动条丝滑滚动 */
+  scroll-behavior: smooth;
+}
+
 /* 清除默认样式的代码 */
 /* 去除常见标签默认的 margin 和 padding */
 body,
@@ -18,76 +24,77 @@ input {
   margin: 0;
   padding: 0;
 }
- 
+
 /* 內减模式 */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
- 
+
 /* 设置网页统一的字体大小、行高、字体系列相关属性 */
 body {
   font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei",
     "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
   color: #333;
 }
- 
+
 /* 去除列表默认样式 */
 ul,
 ol {
   list-style: none;
 }
- 
+
 /* 去除默认的倾斜效果 */
 em,
 i {
   font-style: normal;
 }
- 
+
 /* 去除a标签默认下划线，并设置默认文字颜色 */
 a {
   text-decoration: none;
   color: #333;
 }
- 
+
 /* 设置img的垂直对齐方式为居中对齐，去除img默认下间隙 */
 img {
   vertical-align: middle;
 }
- 
+
 /* 去除input默认样式 */
 input {
   border: none;
   outline: none;
   color: #333;
 }
- 
+
 /* 左浮动 */
 .fl {
   float: left;
 }
- 
+
 /* 右浮动 */
 .fr {
   float: right;
 }
- 
+
 /* 双伪元素清除法 */
 .clearfix::before,
 .clearfix::after {
   content: "";
   display: table;
 }
+
 .clearfix::after {
   clear: both;
 }
 
-.home-entry{
+.home-entry {
   width: 100%;
   height: 100%;
-  background-color:#f5f5f5;
+  background-color: #f5f5f5;
 }
 
-.home-entry .carousel-item{
+.home-entry .carousel-item {
   /* 子绝父相 */
   position: relative;
   width: 1240px;
@@ -98,18 +105,18 @@ input {
   flex-shrink: 0;
 }
 
-.home-entry .home-category{
+.home-entry .home-category {
   /* 子绝父相 */
   position: absolute;
   left: 0;
   top: 0;
   width: 250px;
   height: 500px;
-  background-color: rgb(0, 0,0,.8);
+  background-color: rgb(0, 0, 0, .8);
   opacity: 1;
 }
 
-.home-category .menu .Left-content{
+.home-category .menu .Left-content {
   padding-left: 40px;
   height: 50px;
   line-height: 50px;
@@ -121,26 +128,26 @@ input {
 } */
 
 /* 版心li左侧"居家"文字 */
-.home-category .menu li span{
+.home-category .menu li span {
   color: #fff;
 }
 
 /* 版心li左侧"茶咖酒具、水具杯壶"文字 */
-.menu li a{
+.menu li a {
   font-size: 14px;
   color: #fff;
   margin-right: 2px;
 }
 
 /* 版心li左侧hover */
-.home-category .menu .Left-content:hover{
+.home-category .menu .Left-content:hover {
   background-color: #27ba9b;
   width: 250px;
 }
 
 
 /* 版心左侧lihover */
-.menu{
+.menu {
   overflow: hidden;
   display: inline-block;
 }
@@ -163,7 +170,7 @@ input {
   height: 500px;
   transform: translateX(100%);
   /* background: rgba(212, 212, 212, 0.8); */
-  background-color: hsla(0,0%,100%,.8);
+  background-color: hsla(0, 0%, 100%, .8);
   z-index: 99;
   padding: 0 15px;
 }
@@ -216,7 +223,7 @@ input {
 }
 
 /* 分类推荐商品图片 */
-.home-category .item-content .recommend a img{
+.home-category .item-content .recommend a img {
   width: 95px;
   height: 95px;
 }
@@ -248,13 +255,14 @@ input {
 .home-category .item-content .recommend a .info .price i {
   font-size: 16px;
 }
+
 /* 箭头右边 */
-.home-banner .carousel-btn .icon-angle-right{
+.home-banner .carousel-btn .icon-angle-right {
   position: absolute;
   width: 44px;
   height: 44px;
   background-color: pink;
-  background: rgb(0, 0, 0,.2);
+  background: rgb(0, 0, 0, .2);
   color: #fff;
   border-radius: 50%;
   z-index: 2;
@@ -265,17 +273,17 @@ input {
   transition: all .5s;
 }
 
-.home-banner .carousel-btn .icon-angle-right::before{
+.home-banner .carousel-btn .icon-angle-right::before {
   display: inline-block;
   content: '';
   width: 32px;
   height: 32px;
   background-image: url(../images/sprites.png);
-  background-position:  -28px -68px;
+  background-position: -28px -68px;
   vertical-align: middle;
 }
 
-.carousel-indicator{
+.carousel-indicator {
   left: 680px;
   position: absolute;
   bottom: 20px;
@@ -283,16 +291,17 @@ input {
   height: 10px;
 }
 
-.carousel-indicator ol li{
+.carousel-indicator ol li {
   float: left;
   margin-right: 24px;
   width: 10px;
   height: 10px;
-  background-color: rgb(255, 255, 255,0.4);
+  background-color: rgb(255, 255, 255, 0.4);
   border-radius: 50%;
-  cursor: pointer;  /* 鼠标放上去变成小手 */
+  cursor: pointer;
+  /* 鼠标放上去变成小手 */
 }
 
-.carousel-indicator .current{
+.carousel-indicator .current {
   background-color: #ffffff;
 }
