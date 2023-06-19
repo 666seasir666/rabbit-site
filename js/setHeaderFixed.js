@@ -63,4 +63,32 @@ function watchScroll() {
             console.log(top);
         }
     })
+
+    // 3.页面滚动，可以根据大盒子 选 小盒子li 添加active 类
+    window.addEventListener('scroll', function () {
+        // 3.1 先移出类
+        // 本身没有active类名,先获取这个类名
+        const old = document.querySelector('.xtx-elevator-list .active')
+        // console.log(old);  //会找不到这个类名 返回null
+        // 找不到在进行判断
+        if (old) old.classList.remove('active')
+        // 3.2判断页面当前滑动的位置,选择小盒子li
+
+        // 获取4给大盒子
+        const news = document.querySelector('.home-new')
+        const popular = document.querySelector('.home-popular')
+        const banner = document.querySelector('.home-banner')
+        const topic = document.querySelector('.home-topic')
+        const n = this.document.documentElement.scrollTop
+        if (n >= news.offsetTop && n < popular.offsetTop) {
+            // 选择第一个小盒子li
+            document.querySelector('[data-name="new]').classList.add('active')
+        } else if (n >= popular.offsetTop && n < banner.offsetTop) {
+            document.querySelector('[data-name="popular"]').classList.add('active')
+        } else if (n >= banner.offsetTop && n < topic.offsetTop) {
+            document.querySelector('[data-name="banner"]').classList.add('active')
+        } else if (n >= topic.offsetTop) {
+            document.querySelector('[data-name="topic"]').classList.add('active')
+        }
+    })
 })();
