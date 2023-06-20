@@ -9,7 +9,7 @@ window.addEventListener('scroll', watchScroll)
 function watchScroll() {
     // 获取绑定客户端Rect
     const { top } = appHeaderBox.getBoundingClientRect()
-    console.log(top);
+    // console.log(top);
     // 类列表  固定的 top小于等于0
     appHeader.classList.toggle("fixed", top <= 0);
 }
@@ -46,6 +46,7 @@ function watchScroll() {
     const list = document.querySelector('.xtx-elevator-list')
     list.addEventListener('click', function (e) {
         if (e.target.tagName === 'A' && e.target.dataset.name) {
+            console.log(e.target.tagName);
             // 本身没有active类名,先获取这个类名
             const old = document.querySelector('.xtx-elevator-list .active')
             // console.log(old);  //会找不到这个类名 返回null
@@ -59,8 +60,10 @@ function watchScroll() {
             console.log(e.target.dataset.name);  //获取自定义属性
             const top = (document.querySelector(`.home-${e.target.dataset.name}`).offsetTop); //获取对应大盒子的offsetTop
             // 让页面滚动到对应的位置
-            document.documentElement.offsetTop = top
+            // document.documentElement.offsetTop = top
             console.log(top);
+            console.log(document.querySelector(`.home-${e.target.dataset.name}`));
+            document.querySelector(`.home-${e.target.dataset.name}`).scrollIntoView({ block: 'start', behavior: 'smooth' })
         }
     })
 
@@ -82,7 +85,7 @@ function watchScroll() {
         const n = this.document.documentElement.scrollTop
         if (n >= news.offsetTop && n < popular.offsetTop) {
             // 选择第一个小盒子li
-            document.querySelector('[data-name="new]').classList.add('active')
+            document.querySelector('[data-name=new]').classList.add('active')
         } else if (n >= popular.offsetTop && n < banner.offsetTop) {
             document.querySelector('[data-name="popular"]').classList.add('active')
         } else if (n >= banner.offsetTop && n < topic.offsetTop) {

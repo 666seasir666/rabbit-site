@@ -78,17 +78,17 @@ function prev() {
 
 // 监听轮播图父盒子鼠标进入事件
 carouselBox.addEventListener('mouseover', function () {
-    console.log('鼠标进入');
+    // console.log('鼠标进入');
     timer && stop()
 })
 // 监听轮播图父盒子鼠标移出事件
 carouselBox.addEventListener('mouseleave', function () {
-    console.log('鼠标离开', !timer);
+    // console.log('鼠标离开', !timer);
     !timer && swipe()
 })
 
 function swipe() {
-    console.log('启动计时器');
+    // console.log('启动计时器');
     timer = setInterval(() => {
         // 每隔一秒执行
         next()
@@ -97,62 +97,64 @@ function swipe() {
 
 // 停止轮播
 function stop() {
-    console.log('停止计时器');
+    // console.log('停止计时器');
     clearInterval(timer)
     timer = null
 }
 
-swipe()
+swipe();    //加分号，否则报错！！！
 
 
-    //第一大模块，页面滑动可以显示和隐藏
-    // 获取电梯父级元素
-    // const elevator = document.querySelector('.xtx-elevator')
-    // // 获取轮播图距离页面顶部位置
-    // const home_entry = document.querySelector('.home-entry')
-    // // 1.当页面滚动大于300像素，就显示电梯导航
-    // // 2.给页面添加滚动事件
-    // window.addEventListener('scroll', function () {
-    //     const n = document.documentElement.scrollTop
-    //     // if (n >= 300) {
-    //     //     elevator.style.opacity = 1
-    //     // } else {
-    //     //     elevator.style.opacity = 0
-    //     // }
-    //     //三元运算符-简写
-    //     elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
-    // })
+//第一大模块，页面滑动可以显示和隐藏
+// 获取电梯父级元素
+// const elevator = document.querySelector('.xtx-elevator')
+// // 获取轮播图距离页面顶部位置
+// const home_entry = document.querySelector('.home-entry')
+// // 1.当页面滚动大于300像素，就显示电梯导航
+// // 2.给页面添加滚动事件
+// window.addEventListener('scroll', function () {
+//     const n = document.documentElement.scrollTop
+//     // if (n >= 300) {
+//     //     elevator.style.opacity = 1
+//     // } else {
+//     //     elevator.style.opacity = 0
+//     // }
+//     //三元运算符-简写
+//     elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
+// })
 
-    // // 点击返回页面顶部
-    // // 1.获取返回按钮
-    // const backTop = document.querySelector('#backTop')
-    // // 2.添加返回点击事件
-    // backTop.addEventListener('click', function () {
-    //     document.documentElement.scrollTop = 0
-    // })
+// // 点击返回页面顶部
+// // 1.获取返回按钮
+// const backTop = document.querySelector('#backTop')
+// // 2.添加返回点击事件
+// backTop.addEventListener('click', function () {
+//     document.documentElement.scrollTop = 0
+// })
 
-    // (function () {
-    //     const elevator = document.querySelector('.xtx-elevator')
-    //     // 获取轮播图距离页面顶部位置
-    //     const home_entry = document.querySelector('.home-entry')
-    //     // 1.当页面滚动大于300像素，就显示电梯导航
-    //     // 2.给页面添加滚动事件
-    //     window.addEventListener('scroll', function () {
-    //         const n = document.documentElement.scrollTop
-    //         // if (n >= 300) {
-    //         //     elevator.style.opacity = 1
-    //         // } else {
-    //         //     elevator.style.opacity = 0
-    //         // }
-    //         //三元运算符-简写
-    //         elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
-    //     })
+// (function () {
+//     console.log(4564654654)
+//     const elevator = document.querySelector('.xtx-elevator')
+//     // 获取轮播图距离页面顶部位置
+//     const home_entry = document.querySelector('.home-entry')
+//     // 1.当页面滚动大于300像素，就显示电梯导航
+//     // 2.给页面添加滚动事件
+//     window.addEventListener('scroll', function () {
+//         const n = document.documentElement.scrollTop
+//         // if (n >= 300) {
+//         //     elevator.style.opacity = 1
+//         // } else {
+//         //     elevator.style.opacity = 0
+//         // }
+//         //三元运算符-简写
+//         elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
+//     })
 
-    //     // 点击返回页面顶部
-    //     // 1.获取返回按钮
-    //     const backTop = document.querySelector('#backTop')
-    //     // 2.添加返回点击事件
-    //     backTop.addEventListener('click', function () {
-    //         document.documentElement.scrollTop = 0
-    //     })
-    // })()
+//     // 点击返回页面顶部
+//     // 1.获取返回按钮
+//     const backTop = document.querySelector('#backTop')
+//     // 2.添加返回点击事件
+//     backTop.addEventListener('click', function () {
+//         document.documentElement.scrollTop = 0
+//     })
+// })();  
+
