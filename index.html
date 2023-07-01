@@ -1081,7 +1081,7 @@
             </div>
 
             <!-- 新鲜好物 -->
-            <div class="home-new panel">
+            <div class="home-new panel navigator" id="home-new">
                 <div class="home-panel">
                     <div class="container">
                         <div class="head">
@@ -1093,55 +1093,14 @@
                         </div>
                         <!-- 新鲜好物-内容-区域 -->
                         <div class="bd clearfix">
-                            <ul>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="./images/new_goods_1.jpg" alt="#">
-                                        <p class="name">睿米无线吸尘器F8</p>
-                                        <p class="desc">¥
-                                            <span class="commodity">899</span>
-                                        </p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="./images/new_goods_2.jpg" alt="#">
-                                        <p class="name">智能环绕3D空调</p>
-                                        <p class="desc">¥
-                                            <span>1299</span>
-                                        </p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="./images/new_goods_3.jpg" alt="#">
-                                        <p class="name">广东软软糯米煲仔饭</p>
-                                        <p class="desc">¥
-                                            <span>129</span>
-                                        </p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="./images/new_goods_4.jpg" alt="#">
-                                        <p class="name">罗西机械智能手表</p>
-                                        <p class="desc">¥
-                                            <span>1299</span>
-                                        </p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                            </ul>
+                            <ul><!-- for循环渲染li --></ul>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- 人气推荐 -->
-            <div class="home-popular panel">
+            <div class="home-popular panel navigator" id="home-popular">
                 <div class="home-panel">
                     <div class="container">
                         <div class="head">
@@ -1149,52 +1108,15 @@
                         </div>
 
                         <!-- 人气推荐-内容-区域 -->
-                        <div class="bd clearfix">
-                            <ul>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_1.jpg"
-                                            alt="#">
-                                        <p class="name">特惠推荐</p>
-                                        <p class="desc">它们最实惠</p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_2.jpg"
-                                            alt="#">
-                                        <p class="name">爆款推荐</p>
-                                        <p class="desc">它们最受欢迎</p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_3.jpg"
-                                            alt="#">
-                                        <p class="name">一站买全</p>
-                                        <p class="desc">使用场景下精心优选</p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                                <li class="shadow">
-                                    <a href="#" class="router-link-active">
-                                        <img src="https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_4.jpg"
-                                            alt="#">
-                                        <p class="name">特惠推荐</p>
-                                        <p class="desc">更多超值优惠券</p>
-                                        <b>新品</b>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="bd clearfix popularity">
+                            <ul><!-- for循环渲染li --></ul>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- 热门品牌 -->
-            <div class="home-bannerr panel">
+            <div class="home-banner panel navigator" id="home-banner">
                 <div class="container">
                     <div class="head">
                         <h3 class="xinxian">热门品牌<span class="chulu">国际经典 品质保证</span>
@@ -1205,38 +1127,7 @@
 
                     <!-- 热门品牌-内容-区域 -->
                     <div class="box">
-                        <ul class="list">
-                            <li class="shadow">
-                                <a href="#">
-                                    <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/a25d210a-cf3d-49f5-9006-5c1e7c563bb9.jpg"
-                                        alt="" width="240px" height="350px">
-                                </a>
-                            </li>
-                            <li class="shadow">
-                                <a href="#">
-                                    <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/b5fd7624-1d1e-4ed9-b739-a8f44f2d08fc.jpg"
-                                        alt="" width="240px" height="350px">
-                                </a>
-                            </li>
-                            <li class="shadow">
-                                <a href="#">
-                                    <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/fdbc5113-dcca-4b7f-b1d6-c51faf8e3de9.jpg"
-                                        alt="" width="240px" height="350px">
-                                </a>
-                            </li>
-                            <li class="shadow">
-                                <a href="#">
-                                    <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/cc95ddbf-f2f8-4c48-9845-0c5364557198.jpg"
-                                        alt="" width="240px" height="350px">
-                                </a>
-                            </li>
-                            <li class="shadow">
-                                <a href="#">
-                                    <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/cdeaf7eb-a68f-485c-9fc3-82358ebed83b.jpg"
-                                        alt="" width="240px" height="350px">
-                                </a>
-                            </li>
-                        </ul>
+                        <ul class="list"><!-- for循环渲染li --></ul>
                     </div>
                 </div>
             </div>
@@ -1272,144 +1163,7 @@
                             </strong>
                         </a>
 
-                        <ul class="goods-listt">
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home1.jpg" alt="#">
-                                    </a>
-                                    <p class="name">日式黑陶茶具枯山水茶具礼盒装</p>
-                                    <p class="desc ellipsis">经典枯山水造型极简别致礼盒礼袋装</p>
-                                    <p class="price">¥218.00</p>
-
-                                    <div class="extra">
-                                        <a href="#">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home2.jpg" alt="">
-                                    </a>
-                                    <p class="name">魔术盒快客杯旅行盖碗茶具套装</p>
-                                    <p class="desc ellipsis">轻松收纳携带方便随时随地品茶</p>
-                                    <p class="price">¥148.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home3.jpg" alt="">
-                                    </a>
-                                    <p class="name">日式黑陶功夫茶组双侧把茶具礼盒装</p>
-                                    <p class="desc ellipsis">日式风格单把设计防烫隔热美观大气</p>
-                                    <p class="price">¥288.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home4.png" alt="">
-                                    </a>
-                                    <p class="name">大师监制龙泉青瓷茶叶罐</p>
-                                    <p class="desc ellipsis">世界非遗|青瓷世家出品|釉润如玉</p>
-                                    <p class="price">¥139.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home5.png" alt="">
-                                    </a>
-                                    <p class="name">古法温酒汝瓷酒具套装白酒杯莲花温酒器</p>
-                                    <p class="desc ellipsis">以汝瓷为载体制作的温酒器套组，酒器精美，酒杯玲珑、淡淡的天青釉色，足以让酒席上，再添几分色彩。</p>
-                                    <p class="price">¥488.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home6.jpg" alt="">
-                                    </a>
-                                    <p class="name">智能温控细嘴流速刚刚好咖啡手冲壶电热水壶</p>
-                                    <p class="desc ellipsis">智能温控出水流畅，容易操控</p>
-                                    <p class="price">¥389.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home7.png" alt="#">
-                                    </a>
-                                    <p class="name">竹制干泡茶盘正方形沥水茶台品茶盘</p>
-                                    <p class="desc ellipsis">干泡蓄水拆洗方便轻便实用</p>
-                                    <p class="price">¥109.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Home8.jpg" alt="#">
-                                    </a>
-                                    <p class="name">称心如意手摇咖啡磨豆机咖啡豆研磨机</p>
-                                    <p class="desc ellipsis">随时随地享受自然美味</p>
-                                    <p class="price">¥289.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <ul class="goods-listt At-home"></ul>
                     </div>
                 </div>
                 <!-- 美食 -->
@@ -1441,144 +1195,7 @@
                             </strong>
                         </a>
 
-                        <ul class="goods-listt">
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food1.jpg" alt="#">
-                                    </a>
-                                    <p class="name">网易味央黑猪五花肉330g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥50.00</p>
-
-                                    <div class="extra">
-                                        <a href="#">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food2.jpg" alt="">
-                                    </a>
-                                    <p class="name">网易味央黑猪里脊200g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥49.90</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food3.jpg" alt="">
-                                    </a>
-                                    <p class="name">网易味央黑猪猪蹄330g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥38.90</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food4.jpg" alt="">
-                                    </a>
-                                    <p class="name">网易味央黑猪猪肘330g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥37.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food5.jpg" alt="">
-                                    </a>
-                                    <p class="name">网易味央黑猪去骨蹄膀500g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥65.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fine_food6.jpg" alt="">
-                                    </a>
-                                    <p class="name">网易味央黑猪大排330g*1袋</p>
-                                    <p class="desc ellipsis">安心黑猪甄选好礼</p>
-                                    <p class="price">¥37.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_7.jpg" alt="#">
-                                    </a>
-                                    <p class="name">虾肉饱满紧实，人工去头开背虾500g</p>
-                                    <p class="desc ellipsis">虾肉饱满紧实，可做宝宝辅食</p>
-                                    <p class="price">¥55.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_8.jpg" alt="#">
-                                    </a>
-                                    <p class="name">个大体肥，冷冻对虾400g</p>
-                                    <p class="desc ellipsis">新鲜优质虾品，星级享受</p>
-                                    <p class="price">¥39.90</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <ul class="goods-listt delicacy"></ul>
                     </div>
                 </div>
                 <!-- 服饰 -->
@@ -1610,143 +1227,7 @@
                             </strong>
                         </a>
 
-                        <ul class="goods-listt">
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment1.jpg" alt="#">
-                                    </a>
-                                    <p class="name">男女经典两带式软木拖鞋</p>
-                                    <p class="desc ellipsis">经典两带式，舒适不过时</p>
-                                    <p class="price">¥79.00</p>
-
-                                    <div class="extra">
-                                        <a href="#">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment2.jpg" alt="">
-                                    </a>
-                                    <p class="name">KENROLL室外防滑男女运动拖鞋</p>
-                                    <p class="desc ellipsis">潮流外穿，运动鞋型</p>
-                                    <p class="price">¥39.90</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment3.jpg" alt="">
-                                    </a>
-                                    <p class="name">KENROLL吾皇潮趣男女室外拖鞋</p>
-                                    <p class="desc ellipsis">潮流吾皇万睡</p>
-                                    <p class="price">¥139.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment4.jpg" alt="">
-                                    </a>
-                                    <p class="name">KENROLL男女简洁多彩一片式室外拖</p>
-                                    <p class="desc ellipsis">多彩多色，夏日出行防护</p>
-                                    <p class="price">¥99.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment5.jpg" alt="">
-                                    </a>
-                                    <p class="name">Kenroll女士防滑夏季人字沙滩拖鞋</p>
-                                    <p class="desc ellipsis">清爽人字拖鞋，轻松夏日出行</p>
-                                    <p class="price">¥99.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment6.png" alt="">
-                                    </a>
-                                    <p class="name">情侣款经典帆布鞋</p>
-                                    <p class="desc ellipsis">元气满满，玩味经典</p>
-                                    <p class="price">¥76.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment7.png" alt="#">
-                                    </a>
-                                    <p class="name">情侣款经典小白鞋</p>
-                                    <p class="desc ellipsis">一双胜十双的穿搭利器</p>
-                                    <p class="price">¥359.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/adornment8.png" alt="#">
-                                    </a>
-                                    <p class="name">深船型两带式可外穿软弹拖鞋</p>
-                                    <p class="desc ellipsis">软弹如云朵般，开天窗版透气</p>
-                                    <p class="price">¥27.50</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul class="goods-listt dress">
                         </ul>
                     </div>
 
@@ -1781,143 +1262,8 @@
                             </strong>
                         </a>
 
-                        <ul class="goods-listt">
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother1.jpg" alt="#">
-                                    </a>
-                                    <p class="name">儿童字母纯棉POLO衫73-130cm</p>
-                                    <p class="desc ellipsis">甄选100%纯棉面料，手感细腻柔软，穿着舒适透气。</p>
-                                    <p class="price">¥99.00</p>
+                        <ul class="goods-listt mother-and-baby">
 
-                                    <div class="extra">
-                                        <a href="#">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother2.jpg" alt="">
-                                    </a>
-                                    <p class="name">科技凉感抗菌面料，男童短袖polo衫</p>
-                                    <p class="desc ellipsis">科技凉感抗菌面料，凉爽舒适</p>
-                                    <p class="price">¥69.90</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother3.jpg" alt="">
-                                    </a>
-                                    <p class="name">索罗娜面料，圆领印花插肩袖T恤110-160cm</p>
-                                    <p class="desc ellipsis">索罗娜玉米纤维，杜邦新科技面料，绵软干爽舒适</p>
-                                    <p class="price">¥59.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother4.jpg" alt="">
-                                    </a>
-                                    <p class="name">复古文艺宝宝格纹短袖衬衫73-110cm</p>
-                                    <p class="desc ellipsis">经典格纹，柔软舒适，清凉透气，小熊贴布，萌趣可爱</p>
-                                    <p class="price">¥89.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother5.jpg" alt="">
-                                    </a>
-                                    <p class="name">儿童多色圆领印花短袖T恤110-160cm</p>
-                                    <p class="desc ellipsis">40S精梳棉面料，手感柔软细腻，舒适透气，耐洗耐穿</p>
-                                    <p class="price">¥59.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother6.jpg" alt="">
-                                    </a>
-                                    <p class="name">2023春季新品，宝宝四季连体哈衣59-90cm</p>
-                                    <p class="desc ellipsis">不同开襟方式，穿出更多花样</p>
-                                    <p class="price">¥55.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother7.jpg" alt="#">
-                                    </a>
-                                    <p class="name">2023年春季新品，儿童纯棉长袖T恤73-130cm</p>
-                                    <p class="desc ellipsis">多色可选，童趣别致</p>
-                                    <p class="price">¥59.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/Mother8.jpg" alt="#">
-                                    </a>
-                                    <p class="name">打翻春天调色盘，儿童印花套头卫衣5-16岁</p>
-                                    <p class="desc ellipsis">色彩丰富，落肩款自带时髦感</p>
-                                    <p class="price">¥86.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
 
                     </div>
@@ -1951,152 +1297,13 @@
                             </strong>
                         </a>
 
-                        <ul class="goods-listt">
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_1.jpg" alt="">
-                                    </a>
-                                    <p class="name">美威 智利原味三文鱼排 240g/袋 4片装</p>
-                                    <p class="desc ellipsis">海鲜年货</p>
-                                    <p class="price">¥59.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_2.jpg" alt="">
-                                    </a>
-                                    <p class="name">红功夫 麻辣小龙虾1.5kg 4-6钱/25-32只</p>
-                                    <p class="desc ellipsis">海鲜年货</p>
-                                    <p class="price">¥79.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_3.jpg" alt="">
-                                    </a>
-                                    <p class="name">三都港 冷冻无公害黄花鱼 700g 2条 袋装</p>
-                                    <p class="desc ellipsis">海鲜水产</p>
-                                    <p class="price">¥49.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_4.jpg" alt="">
-                                    </a>
-                                    <p class="name">渔公码头 大连鲜食入味 即食海参 辽参刺参</p>
-                                    <p class="desc ellipsis">调味海</p>
-                                    <p class="price">¥899.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_5.jpg" alt="">
-                                    </a>
-                                    <p class="name">越南白心火龙果4个装 标准果400-550g</p>
-                                    <p class="desc ellipsis">新鲜水果</p>
-                                    <p class="price">¥20.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_6.jpg" alt="">
-                                    </a>
-                                    <p class="name">广西沃柑 新鲜水果 柑橘1.5kg </p>
-                                    <p class="desc ellipsis">新鲜水果</p>
-                                    <p class="price">¥10.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_7.jpg" alt="">
-                                    </a>
-                                    <p class="name">进口 牛油果 6个装 单果重约130-180g</p>
-                                    <p class="desc ellipsis">新鲜水果</p>
-                                    <p class="price">¥50.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="goods-item">
-                                    <a href="" class="image">
-                                        <img src="./images/fresh_goods_8.jpg" alt="">
-                                    </a>
-                                    <p class="name">泰国进口山竹5A级 500g</p>
-                                    <p class="desc ellipsis">新鲜水果</p>
-                                    <p class="price">¥60.00</p>
-
-                                    <div class="extra">
-                                        <a href="" class="router-link-active router-link-exact-active">
-                                            <span>找相似</span>
-                                            <span>发现现多宝贝 ></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <ul class="goods-listt Fresh"></ul>
                     </div>
                 </div>
             </div>
 
-
-
             <!-- 最新专题 -->
-            <div class="home-topic pane1" style="height: 495px; background: #f5f5f5;">
+            <div class="home-topic pane1 navigator" id="home-topic" style="height: 495px; background: #f5f5f5;">
                 <div class="containere">
                     <div class="head">
                         <h3 class="xinxian">
@@ -2318,10 +1525,10 @@
                 <!-- 电梯 -->
                 <div class="xtx-elevator">
                     <ul class="xtx-elevator-list">
-                        <li><a href="javascript:;" data-name="new">新鲜好物</a></li>
-                        <li><a href="javascript:;" data-name="popular">人气推荐</a></li>
-                        <li><a href="javascript:;" data-name="bannerr">热门品牌</a></li>
-                        <li><a href="javascript:;" data-name="topic">最新专题</a></li>
+                        <li><a href="#home-new" data-name="new">新鲜好物</a></li>
+                        <li><a href="#home-popular" data-name="popular">人气推荐</a></li>
+                        <li><a href="#home-banner" data-name="banner">热门品牌</a></li>
+                        <li><a href="#home-topic" data-name="topic">最新专题</a></li>
                         <li><a href="javascript:;" id="backTop"><i class="sprites"> 〉</i>顶部</a></li>
                     </ul>
                 </div>
@@ -2333,5 +1540,6 @@
 <!-- 引入 js 文件 -->
 <script src="./js/index.js"></script>
 <script src="./js/setHeaderFixed.js"></script>
+<script src="./js/public.js"></script>
 
 </html>

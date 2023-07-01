@@ -1,33 +1,11 @@
-// 轮播图
+var arr = ['https://yanxuan-item.nosdn.127.net/7170d6147878a099914b7bb7ce21773f.png', '	https://yanxuan-item.nosdn.127.net/6d8d6772df51fa60c2e899a16ac34718.png', 'https://yanxuan-item.nosdn.127.net/ea1ec719c9a860eedb0cb7ef31ada4af.png', 'https://yanxuan-item.nosdn.127.net/c3b4e3640f77bb72ec4d043ef2e2a0cd.png']
 
-// 获取轮播图父级元素
-// const xtx_carousel = document.querySelector('.xtx-carousel')
+var img = document.querySelector('.carousel-item .slider img')
 
-// 获取ul
-// const carousel_body = document.querySelector('.carousel-body')
 
-// 获取li
-const carousel_item = document.querySelectorAll('.carousel-item')
-// console.log(carousel_item);
-
-for (let i = 0; i < carousel_item.length; i++) {
-    carousel_item.style.display = none
-    console.log(carousel_item);
-}
-
-//获取上一张按钮
-const prev = document.querySelector('.prev')
-
-//获取下一张按钮
-const next = document.querySelector('.next')
-
-let i = 0
-// 添加点击事件  上一张
-prev.addEventListener('click', function () {
-    console.log(111);
-})
-
-// 添加点击事件  上一张
-next.addEventListener('click', function () {
-    console.log(222);
-})
+var index = 0;
+setInterval(function () {
+    index = ++index === arr[lengthE] ?  0 : index;
+        img.src = arr[index];
+    console.log(img);
+}, 1000)

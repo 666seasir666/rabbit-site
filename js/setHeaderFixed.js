@@ -1,18 +1,4 @@
 
-const appHeaderBox = document.querySelector('.app-header-box')
-const appHeader = appHeaderBox.querySelector('.app-header')
-
-// 窗口滚动 添加事件侦听器 
-window.addEventListener('scroll', watchScroll)
-
-//
-function watchScroll() {
-    // 获取绑定客户端Rect
-    const { top } = appHeaderBox.getBoundingClientRect()
-    // console.log(top);
-    // 类列表  固定的 top小于等于0
-    appHeader.classList.toggle("fixed", top <= 0);
-}
 
 (function () {
     const elevator = document.querySelector('.xtx-elevator')
@@ -63,7 +49,7 @@ function watchScroll() {
             // document.documentElement.offsetTop = top
             console.log(top);
             console.log(document.querySelector(`.home-${e.target.dataset.name}`));
-            document.querySelector(`.home-${e.target.dataset.name}`).scrollIntoView({ block: 'start', behavior: 'smooth' })
+            document.querySelector(`.home-${e.target.dataset.name}`).scrollIntoView({ behavior: 'smooth' })
         }
     })
 
@@ -87,11 +73,11 @@ function watchScroll() {
             // 选择第一个小盒子li
             document.querySelector('[data-name=new]').classList.add('active')
         } else if (n >= popular.offsetTop && n < banner.offsetTop) {
-            document.querySelector('[data-name="popular"]').classList.add('active')
+            document.querySelector('[data-name=popular]').classList.add('active')
         } else if (n >= banner.offsetTop && n < topic.offsetTop) {
-            document.querySelector('[data-name="banner"]').classList.add('active')
+            document.querySelector('[data-name=banner]').classList.add('active')
         } else if (n >= topic.offsetTop) {
-            document.querySelector('[data-name="topic"]').classList.add('active')
+            document.querySelector('[data-name=topic]').classList.add('active')
         }
     })
 })();
