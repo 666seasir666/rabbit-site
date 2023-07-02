@@ -97,7 +97,8 @@ input {
 .app-header-nav li a:hover {
   color: #27ba9b;
   border-bottom: 1px solid #27ba9b;
-  height: 90px;
+  height: 32px;
+  line-height: 32px;
   display: inline-block;
 }
 
@@ -261,7 +262,7 @@ input {
 
 /* 鼠标移入悬停显示下拉菜单（导航栏鼠标经过 hover 时出现二级菜单） */
 .layer {
-  display: none;
+  display: block;
   width: 1240px;
   background-color: #fff;
   position: absolute;
@@ -270,7 +271,7 @@ input {
   height: 0;
   overflow: hidden;
   box-shadow: 0 0 5px #ccc;
-  transform: all .2s .1s;
+  transition: all .2s .1s;
 }
 
 .layer ul {
