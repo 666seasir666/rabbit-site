@@ -151,7 +151,7 @@ toggleActiveLink();// 调用函数
 function togglePasswordVisibility() {
   // 获取密码输入框元素
   const passwordInput = document.getElementById("password");
-  
+
   // 获取切换密码可见性的元素
   const togglePassword = document.querySelector(".toggle-password");
 
@@ -206,4 +206,4 @@ function toggleLoginType() {
     }
   });
 }
-toggleLoginType()//// 调用函数
+toggleLoginType()// 调用函数
