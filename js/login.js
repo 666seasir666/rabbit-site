@@ -168,7 +168,7 @@ function togglePasswordVisibility() {
     togglePassword.innerHTML = '<img src="https://my.ruanmei.com/user-login/images/eye-close.svg" alt="隐藏密码">';
   }
 }
-togglePasswordVisibility()
+
 
 
 //点击使用账户/短信登录切换
