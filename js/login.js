@@ -1,27 +1,14 @@
-// 获取按钮dom
-// const loginBtn = document.querySelector('.login-btn')
-// querySelector 只会获取第一个捕获的元素
-// querySelectorAll 会捕获所有符合的元素，这个时候它获取到的是一个数组
-// 为了分别控制用户和密码显示，这里最好分开操作样式
-// 一起也可以，用index
+// 获取所有用户输入为空提示元素
 const pwdWarn = document.querySelectorAll('.pwd-warn')
+
 for (let i = 0; i < pwdWarn.length; i++) {
   pwdWarn[i].style.display = 'none'
 }
+//获取请输入用户名表单
 const userInput = document.querySelector('.user-input')
-// 监听失焦事件
-// userInput.addEventListener('blur', function () {
-//     let userMatch = /^[a-zA-Z][a-zA-Z0-9_]*$/
-//     if (userMatch.test(userInput.value) && userInput.value.length >= 6 && userInput.value.length <= 20) {
-//         pwdWarn[0].style.display = 'none'
-//         userInput.style.border = '1px solid #cfcdcd'
-//     } else {
-//         pwdWarn[0].style.display = 'block'
-//         userInput.style.border = '1px solid red'
-//     }
-// })
 
-
+//获取form表单
+const form = document.querySelector('.form')
 
 function validateUsername() {
   // TODO 在这里验证用户名
@@ -83,10 +70,21 @@ function validateAgreement() {
 }
 
 function login() {
+
+  form.addEventListener('submit', function (e) {
+    // 阻止默认行为
+    e.preventDefault();
+  })
+
   // 两个验证都通过提示登陆成功
   if (validateUsername() && validatePassword() && validateAgreement()) {
     alert('登录成功')
-    window.location.href = 'index.html'
+
+    // 记录用户名到本地储存
+    localStorage.setItem('xtx-uname', userInput.value)
+
+    // 跳转到首页
+    location.href = 'index.html'
   }
 }
 
@@ -137,3 +135,4 @@ nav.addEventListener('click', function (e) {
     e.target.classList.add('active')
   }
 })
+
