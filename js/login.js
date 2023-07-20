@@ -126,13 +126,84 @@ scanBtn.addEventListener('click', function () {
 })
 
 
-//1.tab栏切换显示/隐藏border-bottom   事件委托  
-const nav = document.querySelector('.nav')
+// 切换导航栏活动链接
+function toggleActiveLink() {
+  // 获取导航栏元素
+  const nav = document.querySelector('.nav');
 
-nav.addEventListener('click', function (e) {
-  if (e.target.tagName === 'A') {
-    nav.querySelector('.active').classList.remove('active')
-    e.target.classList.add('active')
+  // 添加点击事件监听器
+  nav.addEventListener('click', function (e) {
+    // 检查点击的元素是否为 <a> 标签
+    if (e.target.tagName === 'A') {
+      // 移除当前活动链接的 'active' 类
+      const currentActiveLink = nav.querySelector('.active');
+      currentActiveLink.classList.remove('active');
+
+      // 为点击的链接添加 'active' 类，突出显示当前活动链接
+      e.target.classList.add('active');
+    }
+  });
+}
+toggleActiveLink();// 调用函数
+
+
+//显示用户输入的密码显示和隐藏
+function togglePasswordVisibility() {
+  // 获取密码输入框元素
+  const passwordInput = document.getElementById("password");
+  
+  // 获取切换密码可见性的元素
+  const togglePassword = document.querySelector(".toggle-password");
+
+  // 检查密码输入框的类型
+  if (passwordInput.type === "password") {
+    // 如果密码输入框类型为密码，则切换为文本类型
+    passwordInput.type = "text";
+    // 更新切换密码可见性元素的内容，显示关闭眼睛图标
+    togglePassword.innerHTML = '<img src="https://my.ruanmei.com/user-login/images/eye-open.svg" alt="显示密码">';
+  } else {
+    // 如果密码输入框类型为文本，则切换为密码类型
+    passwordInput.type = "password";
+    // 更新切换密码可见性元素的内容，显示打开眼睛图标
+    togglePassword.innerHTML = '<img src="https://my.ruanmei.com/user-login/images/eye-close.svg" alt="隐藏密码">';
   }
-})
+}
+togglePasswordVisibility()
 
+
+//点击使用账户/短信登录切换
+function toggleLoginType() {
+  //获取使用短信/账户登录
+  const duanxin = document.querySelector('.iconfont p');
+  //获取使用短信登录伪元素
+  const iconmsg = document.querySelector('.icon-msg')
+  //获取使用账户登录伪元素
+  const iconuser = document.querySelector('.icon-user')
+  //获取请输入用户名form-item元素
+  const formLtem = document.querySelector('.form-item')
+  //获取请输入用户名form-item下一个兄弟元素
+  const formLtem2 = formLtem.nextElementSibling
+  //获取请输入用户名input框
+  const userlnput = document.querySelector('.user-input')
+
+  let isClicked = false; // 初始状态为未点击
+
+  duanxin.addEventListener('click', function () {
+    if (isClicked) {
+      duanxin.innerHTML = '使用短信登录';
+      isClicked = false; // 点击后将状态设置为未点击
+      userlnput.placeholder = '请输入用户名'
+      userlnput.name = 'account'
+      iconmsg.classList.toggle('icon-user');
+
+    } else {
+      duanxin.innerHTML = '使用账户登录';
+      isClicked = true; // 点击后将状态设置为已点击
+      userlnput.parentNode.appendChild(userlnput)
+      userlnput.placeholder = '请输入手机号'
+      userlnput.name = 'mobile'
+      iconmsg.classList.toggle('icon-user');
+    }
+  });
+}
+toggleLoginType()//// 调用函数

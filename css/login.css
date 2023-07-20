@@ -130,7 +130,7 @@ input {
 .login-header .container a {
   width: 120px;
   margin-bottom: 38px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .login-header .container a:hover {
@@ -207,6 +207,11 @@ input {
   content: "\e62d";
   left: 238px;
   position: absolute;
+}
+
+.icon-user:before {
+  content: "\e655";
+  left: 238px;
 }
 
 .icon-fenxiang:before {
@@ -481,6 +486,7 @@ input {
   display: flex;
   justify-content: space-between;
   position: relative;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .login-section .wrapper .box .nav::before {
@@ -497,11 +503,13 @@ input {
   font-size: 18px;
   color: #17bb9b;
   position: relative;
+  top: -2px;
 }
 
 
 .login-section .wrapper .box .nav a.active {
   border-bottom: 2px solid #17bb9b;
+  top: -2px;
 }
 
 /* 使用短信登录 */
@@ -559,6 +567,17 @@ input {
 
 .account-box .form .form-item .input input:focus {
   border-color: #27bb9b;
+}
+
+.account-box .form .form-item .toggle-password img {
+  width: 18px;
+  height: 18px;
+  right: 10px;
+  top: 10px;
+  float: right;
+  position: absolute;
+  /* 鼠标指针在悬停在该元素上时变为手指形状 */
+  cursor: pointer;
 }
 
 .account-box .form-item>.error {
@@ -630,7 +649,7 @@ input {
   padding: 0 10px;
   color: #999;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .containerr .guanyu a:hover {

@@ -8,6 +8,7 @@
     <title>小兔鲜-登录</title>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="shortcut icon" href="http://erabbit.itheima.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.ico">
 </head>
 
 <body>
@@ -51,14 +52,14 @@
 
                 <div class="account-box">
                     <div class="toggle">
-                        <a href="">
+                        <a href="javascript:;">
                             <i class="iconfont icon-msg">
                                 <p>使用短信登录</p>
                             </i>
                             
                         </a>
                     </div>
-                    <form class="form">
+                    <form class="form" autocomplete="off">
                         <div class="form-item">
                             <div class="input">
                                 <i class="iconfont icon-user"></i>
@@ -74,6 +75,9 @@
                             <div class="input">
                                 <i class="iconfont icon-lock"></i>
                                 <input class="user-input" modelvalue="xiaotuxian001" type="password" placeholder="请输入密码" name="account" id="password" autocomplete="current-password">
+                                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                                    <img src="https://my.ruanmei.com/user-login/images/eye-close.svg"alt="Toggle Password Visibility">
+                                </span>
                             </div>
                             <div class="error pwd-warn">
                                 <i class="iconfont icon-warning"></i>

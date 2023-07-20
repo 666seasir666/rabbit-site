@@ -105,3 +105,32 @@
     }
     showElement(0);  //显示第一个元素
 })();
+
+//渲染用户登录的用户名和退出登录
+(function () {
+    //获取"请先登录"li元素
+    const pleaseLoginFirst = document.querySelector('.wrapper li:first-child')
+    //获取"请先注册"li元素
+    const PleaseRegisterFirst = pleaseLoginFirst.nextElementSibling
+
+    function render() {
+        //从本地存储中获取用户名赋值给unama变量
+        const uname = localStorage.getItem('xtx-uname')
+        if (uname) {
+            pleaseLoginFirst.innerHTML = `<a href="javascript:;"><i class="iconfont icon-user">${uname}</i></a>`
+
+            PleaseRegisterFirst.innerHTML = `<a href="javascript:;">退出登录</a>`
+        } else {
+            pleaseLoginFirst.innerHTML = `<a href="./login.html">请先登录</a>`
+
+            PleaseRegisterFirst.innerHTML = `<a href="./register.html">免费注册</a>`
+        }
+    }
+    render() //调用函数
+
+    // 2.点击退出登录
+    PleaseRegisterFirst.addEventListener('click', function () {
+        localStorage.removeItem('xtx-uname')
+        render()  //重新渲染
+    })
+})();
