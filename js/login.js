@@ -168,7 +168,7 @@ function togglePasswordVisibility() {
     togglePassword.innerHTML = '<img src="https://my.ruanmei.com/user-login/images/eye-close.svg" alt="隐藏密码">';
   }
 }
-
+//这里无需调用togglePasswordVisibility()函数，会导致默认显示密码
 
 
 //点击使用账户/短信登录切换
@@ -186,24 +186,88 @@ function toggleLoginType() {
   //获取请输入用户名input框
   const userlnput = document.querySelector('.user-input')
 
+  const password = document.getElementById('password')
+  
+  const iconLock = document.querySelector('.icon-lock')
+
+  const code = document.querySelector('.code')
+
+  code.style.display = 'none'
+
+  // 获取切换密码可见性的元素
+  const togglePassword = document.querySelector(".toggle-password");
   let isClicked = false; // 初始状态为未点击
 
   duanxin.addEventListener('click', function () {
     if (isClicked) {
       duanxin.innerHTML = '使用短信登录';
       isClicked = false; // 点击后将状态设置为未点击
-      userlnput.placeholder = '请输入用户名'
+      userlnput.placeholder = '请输入手机号'
       userlnput.name = 'account'
       iconmsg.classList.toggle('icon-user');
+
+      password.placeholder = '请输入验证码'
+      password.name = 'code'
+      iconLock.classList.remove('icon-lock')
+      iconLock.classList.add('icon-code')
+
+      code.style.display = 'block'
+      togglePassword.style.display = 'none'
 
     } else {
       duanxin.innerHTML = '使用账户登录';
       isClicked = true; // 点击后将状态设置为已点击
       userlnput.parentNode.appendChild(userlnput)
-      userlnput.placeholder = '请输入手机号'
+      userlnput.placeholder = '请输入用户名'
       userlnput.name = 'mobile'
       iconmsg.classList.toggle('icon-user');
+
+      password.placeholder = '请输入密码'
+      password.name = 'password'
+      iconLock.classList.remove('icon-code');
+      iconLock.classList.add('icon-lock');
+
+      code.style.display = 'none'
+      togglePassword.style.display = 'block'
     }
   });
 }
 toggleLoginType()// 调用函数
+
+
+//使用短信登录时发送验证码
+function startCountdown(buttonSelector, inputSelector) {
+  var button = document.querySelector(buttonSelector);
+  var input = document.querySelector(inputSelector);
+
+  var flag = true;
+
+  button.addEventListener('click', function () {
+    var phoneNumber = input.value.trim();
+
+    if (phoneNumber === "") {
+      alert("手机号不能为空！");
+      return;
+    }
+
+    if (!/^\d{11}$/.test(phoneNumber)) {
+      alert("请输入正确的手机号！");
+      return;
+    }
+
+    if (flag) {
+      flag = false;
+      var i = 6;
+      var timeID = setInterval(function () {
+        i--;
+        button.innerHTML = `0${i}秒后重新获取`;
+        if (i === 0) {
+          clearInterval(timeID);
+          button.innerHTML = "发送验证码";
+          flag = true;
+        }
+      }, 1000);
+    }
+  });
+}
+startCountdown('.code', '#uname');

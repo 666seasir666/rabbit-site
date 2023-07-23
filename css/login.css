@@ -569,6 +569,20 @@ input {
   border-color: #27bb9b;
 }
 
+.account-box .form .form-item .input .code{
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  text-align: center;
+  line-height: 34px;
+  font-size: 14px;
+  background: #f5f5f5;
+  color: #666;
+  width: 102px;
+  height: 34px;
+  cursor: pointer
+}
+
 .account-box .form .form-item .toggle-password img {
   width: 18px;
   height: 18px;
