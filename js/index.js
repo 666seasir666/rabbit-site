@@ -671,3 +671,23 @@
         render()  //重新渲染
     })
 })();
+
+
+// 封装立即执行函数，用于处理点击事件，点击bilibili图标可以进行跳转
+(function () {
+    // 获取 SVG 元素
+    var svgElement = document.querySelector(".svg-image");
+
+    // 定义点击事件处理函数
+    function handleClick(event) {
+        // 获取被点击的 SVG 元素
+        var svgElement = event.target;
+        // 获取包含链接的 <a> 元素的 href 属性值
+        var href = svgElement.querySelector("a").getAttribute("href");
+        // 设置新的 URL，实现页面跳转
+        window.location.href = href;
+    }
+
+    // 监听点击事件
+    svgElement.addEventListener("click", handleClick);
+})();

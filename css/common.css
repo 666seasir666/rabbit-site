@@ -1179,7 +1179,7 @@ app-body {
 
 .contact .container dl dd .icon-weixin::before {
   display: inline-block;
-  content: '';
+  /* content: ''; */
   width: 36px;
   height: 37px;
   background-image: url(../images/sprites.png);
@@ -1343,4 +1343,31 @@ app-body {
   font-size: 20px;
   transform: rotate(270deg);
   top: -8px;
+}
+
+.appqrcode {
+  display: none;
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  top: 163px;
+  right: 347px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.Download-app:hover+.appqrcode {
+  display: block;
+  opacity: 1;
+}
+
+.svg-image {
+  margin-bottom: -9px;
+  cursor: pointer;
+}
+
+.svg-image:hover path {
+  fill: #27BA9B;
+  /* 鼠标悬停在SVG整个元素时填充红色 */
 }

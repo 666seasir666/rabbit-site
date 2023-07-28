@@ -117,7 +117,7 @@
 }
 
 .icon-weixin:before {
-    content: "\e62e";
+    /* content: "\e62e"; */
 }
 
 .icon-order-receive:before {
