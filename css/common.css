@@ -1368,6 +1368,6 @@ app-body {
 }
 
 .svg-image:hover path {
-  fill: #27BA9B;
+  fill: #00aeec;
   /* 鼠标悬停在SVG整个元素时填充红色 */
 }
