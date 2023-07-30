@@ -673,21 +673,28 @@
 })();
 
 
-// 封装立即执行函数，用于处理点击事件，点击bilibili图标可以进行跳转
 (function () {
-    // 获取 SVG 元素
-    var svgElement = document.querySelector(".svg-image");
-
-    // 定义点击事件处理函数
+    // 处理点击事件的函数
     function handleClick(event) {
-        // 获取被点击的 SVG 元素
+        // 获取点击的SVG元素
         var svgElement = event.target;
-        // 获取包含链接的 <a> 元素的 href 属性值
+
+        // 在点击的SVG元素内找到第一个<a>元素，并获取其"href"属性值
         var href = svgElement.querySelector("a").getAttribute("href");
-        // 设置新的 URL，实现页面跳转
+
+        // 将用户重定向到"href"属性指定的URL
         window.location.href = href;
     }
 
-    // 监听点击事件
-    svgElement.addEventListener("click", handleClick);
+    // 获取带有类名"svg-bilibili"的SVG元素
+    var bilibiliSvgElement = document.querySelector(".svg-bilibili");
+
+    // 为"bilibiliSvgElement"添加点击事件监听器，当被点击时调用"handleClick"函��
+    bilibiliSvgElement.addEventListener("click", handleClick);
+
+    // 获取带有类名"svg-douyin"的SVG元素
+    var douyinSvgElement = document.querySelector(".svg-douyin");
+
+    // 为"douyinSvgElement"添加点击事件监听器，当被点击时调用"handleClick"函数
+    douyinSvgElement.addEventListener("click", handleClick);
 })();

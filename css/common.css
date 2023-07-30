@@ -1177,7 +1177,7 @@ app-body {
   background-position: 103px -66px;
 }
 
-.contact .container dl dd .icon-weixin::before {
+.contact .container dl dd .icon-bilibili::before {
   display: inline-block;
   /* content: ''; */
   width: 36px;
@@ -1187,13 +1187,13 @@ app-body {
   vertical-align: middle;
 }
 
-.contact .container dl dd .icon-weixin:hover::before {
+.contact .container dl dd .icon-bilibili:hover::before {
   background-position: 195px -10px;
 }
 
-.contact .container dl dd .icon-weibo::before {
+.contact .container dl dd .icon-douyin::before {
   display: inline-block;
-  content: '';
+  /* content: ''; */
   width: 36px;
   height: 37px;
   background-image: url(../images/sprites.png);
@@ -1201,7 +1201,7 @@ app-body {
   vertical-align: middle;
 }
 
-.contact .container dl dd .icon-weibo:hover::before {
+.contact .container dl dd .icon-douyin:hover::before {
   background-position: 100px -10px;
 }
 
@@ -1346,7 +1346,6 @@ app-body {
 }
 
 .appqrcode {
-  display: none;
   position: absolute;
   width: 170px;
   height: 170px;
@@ -1362,12 +1361,53 @@ app-body {
   opacity: 1;
 }
 
-.svg-image {
+.svg-bilibili {
   margin-bottom: -9px;
   cursor: pointer;
 }
 
-.svg-image:hover path {
+.svg-bilibili:hover path {
   fill: #00aeec;
   /* 鼠标悬停在SVG整个元素时填充红色 */
+}
+
+.svg-douyin {
+  margin-bottom: -9px;
+  cursor: pointer;
+}
+
+.svg-douyin:hover path {
+  fill: #000000;
+  /* 鼠标悬停在SVG整个元素时填充红色 */
+}
+
+.douyin-hover {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 110px;
+  left: 585px;
+  /* transform: translate(0, 0); */
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.svg-douyin:hover+.douyin-hover {
+  display: block;
+  opacity: 1;
+}
+
+.bilibili-hover {
+  position: absolute;
+  width: 140px;
+  height: 170px;
+  top: 70px;
+  left: 223px;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.svg-bilibili:hover+.bilibili-hover {
+  display: block;
+  opacity: 1;
 }

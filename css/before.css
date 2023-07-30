@@ -125,7 +125,7 @@
 }
 
 .icon-weibo:before {
-    content: "\e63e";
+    /* content: "\e63e"; */
 }
 
 .icon-angle-right:before {
