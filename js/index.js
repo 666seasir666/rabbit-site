@@ -653,7 +653,7 @@
     })
 })();
 
-
+// 网页底部SVG图标的点击事件
 (function () {
     // 处理点击事件的函数
     function handleClick(event) {
@@ -678,4 +678,101 @@
 
     // 为"douyinSvgElement"添加点击事件监听器，当被点击时调用"handleClick"函数
     douyinSvgElement.addEventListener("click", handleClick);
+})();
+
+
+// 负责为页面添加电梯导航功能（回到页面顶部按钮），当页面滚动超过300像素时显示电梯导航。同时，它还包括一个按钮，点击该按钮可以让页面滚动回页面顶部
+(function () {
+    const elevator = document.querySelector('.xtx-elevator')
+    // 获取轮播图距离页面顶部位置
+    const home_entry = document.querySelector('.home-entry')
+    // 1.当页面滚动大于300像素，就显示电梯导航
+    // 2.给页面添加滚动事件
+    window.addEventListener('scroll', function () {
+        const n = document.documentElement.scrollTop
+        // if (n >= 300) {
+        //     elevator.style.opacity = 1
+        // } else {
+        //     elevator.style.opacity = 0
+        // }
+        //三元运算符-简写
+        elevator.style.opacity = n >= home_entry.offsetTop ? 1 : 0
+    })
+
+    // 点击返回页面顶部
+    // 1.获取返回按钮
+    const backTop = document.querySelector('#backTop')
+    // 2.添加返回点击事件
+    backTop.addEventListener('click', function () {
+        document.documentElement.scrollTop = 0
+    })
+})();
+// 实现了一个页面右侧的导航栏（电梯导航），其中的链接可以滚动到对应的页面部分
+(function () {
+    // 获取右侧导航栏li的父元素
+    const list = document.querySelector('.xtx-elevator-list');
+    const links = list.querySelectorAll('a');
+
+    // 事件委托处理点击事件
+    list.addEventListener('click', function (e) {
+        const clickedLink = e.target.closest('a');
+        if (clickedLink && clickedLink.dataset.target) {
+            const target = clickedLink.dataset.target;
+            const targetSection = document.querySelector(`.home-${target}`);
+
+            // 移除当前拥有 .active 类的链接的 .active 类
+            const oldActiveLink = list.querySelector('.active');
+            if (oldActiveLink) {
+                oldActiveLink.classList.remove('active');
+            }
+
+            // 当前元素添加 .active 类
+            clickedLink.classList.add('active');
+
+            // 让页面滚动到对应的位置
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    // 节流函数，用于优化滚动事件的性能
+    function throttle(func, delay) {
+        let timer = null;
+        return function () {
+            const context = this;
+            const args = arguments;
+            if (!timer) {
+                timer = setTimeout(() => {
+                    func.apply(context, args);
+                    timer = null;
+                }, delay);
+            }
+        };
+    }
+
+    // 页面滚动，更新导航栏链接的 .active 类
+    function updateActiveLink() {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        const sections = document.querySelectorAll('[class^="home-"]');
+        let activeLink = links[links.length - 1]; // Default to the last link
+
+        sections.forEach((section) => {
+            if (scrollPosition >= section.offsetTop - 100) {
+                const target = section.className.split(' ')[0].substring(5);
+                activeLink = list.querySelector(`[data-target="${target}"]`);
+            }
+        });
+
+        // 移除当前拥有 .active 类的链接的 .active 类
+        const oldActiveLink = list.querySelector('.active');
+        if (oldActiveLink) {
+            oldActiveLink.classList.remove('active');
+        }
+
+        // 当前元素添加 .active 类
+        activeLink.classList.add('active');
+    }
+
+    // 页面滚动事件进行节流处理
+    const throttledUpdateActiveLink = throttle(updateActiveLink, 100);
+    window.addEventListener('scroll', throttledUpdateActiveLink);
 })();
