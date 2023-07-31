@@ -1,110 +1,90 @@
 // 主页轮播图
+// 使用立即调用的函数表达式（IIFE）创建私有作用域
 (function () {
-    // 定义定时器
-    let timer = null
-    let currentIndex = 0 // 这个 currentIndex 就是为了控制切换的图片
+    // 获取轮播图容器、前进和后退按钮、指示器容器以及所有指示点的元素
+    const carouselBox = document.querySelector('.carousel-box');
+    const prevBtn = document.querySelector('.icon-angle-left');
+    const nextBtn = document.querySelector('.icon-angle-right');
+    const itemsBox = document.querySelector('.carousel-indicator').querySelector('ol');
+    const items = itemsBox.querySelectorAll('li');
 
-    // 获取轮播图父盒子
-    const carouselBox = document.querySelector('.carousel-box')
+    // 当前显示的图片索引
+    let currentIndex = 0;
 
-    // 获取上一张按钮元素
-    const prevBtn = document.querySelector('.icon-angle-left')
+    // 自动轮播计时器
+    let timer;
 
-    // 监听按钮点击事件 点击上一张按钮就会调用 clickPrevBtn 函数
-    prevBtn.addEventListener('click', clickPrevBtn)
-    function clickPrevBtn() {
-        console.log('click prev btn');
-        prev()
+    // 切换到指定图片
+    function switchTo(index) {
+        // 移除当前图片的 'current' 类
+        items[currentIndex].classList.remove('current');
+        // 更新当前索引
+        currentIndex = index;
+        // 将 'current' 类添加到新图片的元素上，以高亮显示对应的指示点
+        items[currentIndex].classList.add('current');
+        // 移动轮播图容器以显示新图片
+        carouselBox.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    // 获取下一张按钮元素
-    const nextBtn = document.querySelector('.icon-angle-right') // nextBtn后面为什么要加btn 语义化 代表按钮 button 缩写
-
-    // 监听按钮点击事件 点击下一张按钮就会调用 clickNextBtn 函数
-    nextBtn.addEventListener('click', clickNextBtn)
-    function clickNextBtn() {
-        console.log('click next btn');
-        next()
-    }
-
-    // 获取中间圆点 dom
-    // 获取 ol 元素
-    const itemsBox = document.querySelector('.carousel-indicator').querySelector('ol')
-    // 获取多个小圆点列表
-    const items = itemsBox.querySelectorAll('li')
-    // 监听小圆点父元素点击事件
-    itemsBox.addEventListener('click', clickitemsBox)
-    function clickitemsBox(e) {
-        // 清除上一个类名 直接在 currentIndex 修改前移除
-        items[currentIndex].classList.remove('current')
-        currentIndex = e.target.dataset.index
-        items[currentIndex].classList.add('current')
-        carouselBox.style.transform = `translateX(-${currentIndex * 100}%)`
-    }
-
-    // 下一张
+    // 下一张图片
     function next() {
-        // 清除上一个类名 直接在 currentIndex 修改前移除
-        items[currentIndex].classList.remove('current')
-        // 添加过渡
-        carouselBox.style.transition = '2s'
-        if (currentIndex >= 4) {
-            currentIndex = 0
-            // 这里取消过渡是为了在最后一张不会慢慢飘回第一张
-            carouselBox.style.transition = '0s'
-        } else {
-            currentIndex++
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= items.length) {
+            // 如果已到最后一张图片，则切换到第一张图片
+            nextIndex = 0;
         }
-        items[currentIndex].classList.add('current')
-        carouselBox.style.transform = `translateX(-${currentIndex * 100}%)` // `string类型${这花括号里的 js 代码会处理}`
-        // 'translateX(-' + currentIndex * 100 + ')' 两种写法结果一样
+        // 切换到下一张图片
+        switchTo(nextIndex);
     }
 
-    // 上一张
+    // 上一张图片
     function prev() {
-        // 清除上一个类名 直接在 currentIndex 修改前移除
-        items[currentIndex].classList.remove('current')
-        // 添加过渡
-        carouselBox.style.transition = '2s'
-        // 如果是第一张就跳到最后一站
-        if (currentIndex == 0) {
-            // 不取消过渡就会慢慢飘过去
-            carouselBox.style.transition = '0s'
-            currentIndex = 4
-        } else {
-            currentIndex--
+        let prevIndex = currentIndex - 1;
+        if (prevIndex < 0) {
+            // 如果已到第一张图片，则切换到最后一张图片
+            prevIndex = items.length - 1;
         }
-        items[currentIndex].classList.add('current')
-        carouselBox.style.transform = `translateX(-${currentIndex * 100}%)` // cv工程师
+        // 切换到上一张图片
+        switchTo(prevIndex);
     }
 
-    // 监听轮播图父盒子鼠标进入事件
-    carouselBox.addEventListener('mouseover', function () {
-        // console.log('鼠标进入');
-        timer && stop()
-    })
-    // 监听轮播图父盒子鼠标移出事件
-    carouselBox.addEventListener('mouseleave', function () {
-        // console.log('鼠标离开', !timer);
-        !timer && swipe()
-    })
-
-    function swipe() {
-        // console.log('启动计时器');
-        timer = setInterval(() => {
-            // 每隔一秒执行
-            next()
-        }, 3000);
+    // 启动自动播放
+    function startAutoPlay() {
+        // 停止之前的自动播放计时器，以免出现重复播放
+        stopAutoPlay();
+        // 设置定时器，每隔 3000 毫秒（3 秒）自动切换到下一张图片
+        timer = setInterval(next, 3000);
     }
 
-    // 停止轮播
-    function stop() {
-        // console.log('停止计时器');
-        clearInterval(timer)
-        timer = null
+    // 停止自动播放
+    function stopAutoPlay() {
+        // 清除自动播放计时器
+        clearInterval(timer);
+        timer = null;
     }
 
-    swipe();    //加分号，否则报错！！！
+    // 监听前进和后退按钮的点击事件，执行对应的切换函数
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    // 监听指示点的点击事件，切换到对应的图片
+    itemsBox.addEventListener('click', function (e) {
+        if (e.target.tagName === 'LI') {
+            // 获取点击的指示点的索引
+            const index = parseInt(e.target.dataset.index);
+            if (index !== currentIndex) {
+                // 只有当点击的指示点与当前图片不一致时，才进行切换
+                switchTo(index);
+            }
+        }
+    });
+
+    // 鼠标悬停停止自动轮播，移出继续自动轮播
+    carouselBox.addEventListener('mouseover', stopAutoPlay);
+    carouselBox.addEventListener('mouseleave', startAutoPlay);
+
+    // 启动自动轮播
+    startAutoPlay();
 })();
 
 // 渲染"新鲜好物"的li
@@ -616,7 +596,7 @@
         ]
 
         const ul = document.querySelector('.box .Fresh')
-        
+
         // 3.开始for循环。根据数组的个数，创建对应的小li
         for (let i = 0; i < data.length; i++) {
             // 创建新的小li

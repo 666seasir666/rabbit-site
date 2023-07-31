@@ -565,9 +565,16 @@ app-body {
 /* 版心轮播图 */
 .carousel-box {
   display: flex;
-  /* animation: animate 20s infinite alternate; */
+  /* 添加过渡效果 */
+  transition: transform 1.5s ease-in-out;
+  cursor: grab;
+  cursor: -webkit-grab;
 }
 
+.carousel-box:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
 
 @keyframes animate {
   0% {
