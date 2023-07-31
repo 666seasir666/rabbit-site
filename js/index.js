@@ -711,28 +711,33 @@
 (function () {
     // 获取右侧导航栏li的父元素
     const list = document.querySelector('.xtx-elevator-list');
-    const links = list.querySelectorAll('a');
+    const links = list ? list.querySelectorAll('a') : []; // 添加错误处理，确保获取到了正确的导航链接
 
     // 事件委托处理点击事件
-    list.addEventListener('click', function (e) {
-        const clickedLink = e.target.closest('a');
-        if (clickedLink && clickedLink.dataset.target) {
-            const target = clickedLink.dataset.target;
-            const targetSection = document.querySelector(`.home-${target}`);
+    if (list) { // 添加错误处理，确保导航链接列表存在
+        list.addEventListener('click', function (e) {
+            const clickedLink = e.target.closest('a');
+            if (clickedLink && clickedLink.dataset.target) {
+                const target = clickedLink.dataset.target;
+                const targetSection = document.querySelector(`.home-${target}`);
 
-            // 移除当前拥有 .active 类的链接的 .active 类
-            const oldActiveLink = list.querySelector('.active');
-            if (oldActiveLink) {
-                oldActiveLink.classList.remove('active');
+                // 确保目标元素存在
+                if (targetSection) {
+                    // 移除当前拥有 .active 类的链接的 .active 类
+                    const oldActiveLink = list.querySelector('.active');
+                    if (oldActiveLink) {
+                        oldActiveLink.classList.remove('active');
+                    }
+
+                    // 当前元素添加 .active 类
+                    clickedLink.classList.add('active');
+
+                    // 让页面滚动到对应的位置
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
-
-            // 当前元素添加 .active 类
-            clickedLink.classList.add('active');
-
-            // 让页面滚动到对应的位置
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+        });
+    }
 
     // 节流函数，用于优化滚动事件的性能
     function throttle(func, delay) {
@@ -763,13 +768,15 @@
         });
 
         // 移除当前拥有 .active 类的链接的 .active 类
-        const oldActiveLink = list.querySelector('.active');
+        const oldActiveLink = list ? list.querySelector('.active') : null; // 添加错误处理，确保导航链接列表存在
         if (oldActiveLink) {
             oldActiveLink.classList.remove('active');
         }
 
         // 当前元素添加 .active 类
-        activeLink.classList.add('active');
+        if (activeLink) { // 添加错误处理，确保获取到了正确的活动链接
+            activeLink.classList.add('active');
+        }
     }
 
     // 页面滚动事件进行节流处理
