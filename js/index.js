@@ -615,7 +615,8 @@
             },
         ]
 
-        const ul = document.querySelector('.box .mother-and-baby')
+        const ul = document.querySelector('.box .Fresh')
+        
         // 3.开始for循环。根据数组的个数，创建对应的小li
         for (let i = 0; i < data.length; i++) {
             // 创建新的小li
