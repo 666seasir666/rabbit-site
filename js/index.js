@@ -206,6 +206,31 @@
             uname: '特惠推荐',
             desc: '它们最实惠'
         },
+        {
+            src: './images/Popular_brands_1.jpg',
+            uname: '特惠推荐',
+            desc: '它们最实惠'
+        },
+        {
+            src: './images/Popular_brands_2.jpg',
+            uname: '特惠推荐',
+            desc: '它们最实惠'
+        },
+        {
+            src: './images/Popular_brands_3.jpg',
+            uname: '特惠推荐',
+            desc: '它们最实惠'
+        },
+        {
+            src: './images/Popular_brands_4.jpg',
+            uname: '特惠推荐',
+            desc: '它们最实惠'
+        },
+        {
+            src: './images/Popular_brands_5.jpg',
+            uname: '特惠推荐',
+            desc: '它们最实惠'
+        },
     ]
 
     const ul = document.querySelector('.box .list')
@@ -783,3 +808,18 @@
     const throttledUpdateActiveLink = throttle(updateActiveLink, 100);
     window.addEventListener('scroll', throttledUpdateActiveLink);
 })();
+
+
+// 获取点击下一个元素
+const buttonPrev = document.querySelector('.disabled.iconfont.icon-angle-left.prev');
+
+buttonPrev.addEventListener('click', function () {
+
+});
+
+// 获取点击下一个元素
+const buttonNext = document.querySelector('.iconfont.icon-angle-right.next');
+
+buttonNext.addEventListener('click', function () {
+
+});
