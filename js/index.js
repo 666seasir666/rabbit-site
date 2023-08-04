@@ -631,31 +631,52 @@
 
 //渲染用户登录的用户名和退出登录
 (function () {
-    //获取"请先登录"li元素
+    // 获取"请先登录"li元素
     const pleaseLoginFirst = document.querySelector('.container li:first-child')
-    //获取"请先注册"li元素
+    // 获取"请先注册"li元素
     const PleaseRegisterFirst = pleaseLoginFirst.nextElementSibling
 
     function render() {
-        //从本地存储中获取用户名赋值给unama变量
+        // 从本地存储中获取用户名赋值给uname变量
         const uname = localStorage.getItem('xtx-uname')
         if (uname) {
             pleaseLoginFirst.innerHTML = `<a href="javascript:;"><i class="iconfont icon-user">${uname}</i></a>`
-
             PleaseRegisterFirst.innerHTML = `<a href="javascript:;">退出登录</a>`
         } else {
             pleaseLoginFirst.innerHTML = `<a href="./login.html">请先登录</a>`
-
             PleaseRegisterFirst.innerHTML = `<a href="./register.html">免费注册</a>`
         }
     }
-    render() //调用函数
 
-    // 2.点击退出登录
+    render() // 调用函数
+
+    // 点击退出登录
     PleaseRegisterFirst.addEventListener('click', function () {
         localStorage.removeItem('xtx-uname')
-        render()  //重新渲染
-    })
+        render()  // 重新渲染
+    });
+
+    // 检查用户是否已登录，并处理跳转
+    function checkLogin() {
+        const uname = localStorage.getItem('xtx-uname')
+        if (uname) {
+            // 需求:如果用户已登录，直接跳转到我的订单页面
+            //问题:即使用户点击我的订单跳转登录界面,当用户登录成功后依然不会跳转我的订单页面,这里有bug
+            //原因:登录成功后还是调用本地储存变量重新定向首页页面
+            window.location.href = "./Order.html"
+        } else {
+            // 如果用户未登录，跳转到登录页面
+            window.location.href = "./login.html"
+        }
+    }
+
+    // 获取“我的订单”链接元素并为其绑定点击事件
+    const orderLink = document.querySelector('a[href="./Order.html"]')
+
+    orderLink.addEventListener('click', function (event) {
+        event.preventDefault(); // 阻止默认的链接跳转行为
+        checkLogin()
+    });
 })();
 
 // 网页底部SVG图标的点击事件
@@ -790,44 +811,46 @@
 })();
 
 
-//封装'热门品牌'函数并实现平滑切换轮播图效果
-function toggleButtons() {
-    // 获取'热门品牌'点击上一个元素
-    const buttonPrev = document.querySelector('.disabled.iconfont.icon-angle-left.prev');
-    // 获取'热门品牌'点击下一个元素
-    const buttonNext = document.querySelector('.iconfont.icon-angle-right.next');
-    //获取热门品牌ul元素
-    const BoxList = document.querySelector('.box .list')
+//封装'热门品牌'立即执行函数并实现平滑切换轮播图效果
+(function () {
+    function toggleButtons() {
+        // 获取'热门品牌'点击上一个元素
+        const buttonPrev = document.querySelector('.disabled.iconfont.icon-angle-left.prev');
+        // 获取'热门品牌'点击下一个元素
+        const buttonNext = document.querySelector('.iconfont.icon-angle-right.next');
+        //获取热门品牌ul元素
+        const BoxList = document.querySelector('.box .list')
 
-    // 为'上一个'按钮添加点击事件处理程序
-    buttonPrev.addEventListener('click', function (e) {
-        // 移除当前按钮的'prev'和'icon-angle-left'类名
-        buttonPrev.classList.remove('icon-angle-left', 'prev');
-        // 添加'disabled'，'iconfont'，'icon-angle-left'和'prev'类名
-        buttonPrev.classList.add('disabled', 'iconfont', 'icon-angle-left', 'prev');
+        // 为'上一个'按钮添加点击事件处理程序
+        buttonPrev.addEventListener('click', function (e) {
+            // 移除当前按钮的'prev'和'icon-angle-left'类名
+            buttonPrev.classList.remove('icon-angle-left', 'prev');
+            // 添加'disabled'，'iconfont'，'icon-angle-left'和'prev'类名
+            buttonPrev.classList.add('disabled', 'iconfont', 'icon-angle-left', 'prev');
 
-        // 移除下一个按钮的'disabled'，'icon-angle-right'和'next'类名
-        buttonNext.classList.remove('disabled', 'icon-angle-right', 'next');
-        // 添加'iconfont'，'icon-angle-right'和'next'类名
-        buttonNext.classList.add('iconfont', 'icon-angle-right', 'next');
+            // 移除下一个按钮的'disabled'，'icon-angle-right'和'next'类名
+            buttonNext.classList.remove('disabled', 'icon-angle-right', 'next');
+            // 添加'iconfont'，'icon-angle-right'和'next'类名
+            buttonNext.classList.add('iconfont', 'icon-angle-right', 'next');
 
-        BoxList.style.transform = 'translateX(0px)'
-    });
+            BoxList.style.transform = 'translateX(0px)'
+        });
 
-    // 为'下一个'按钮添加点击事件处理程序
-    buttonNext.addEventListener('click', function () {
-        // 移除上一个按钮的'disabled'，'icon-angle-left'和'prev'类名
-        buttonPrev.classList.remove('disabled', 'icon-angle-left', 'prev');
-        // 添加'icon-angle-left'和'prev'类名
-        buttonPrev.classList.add('icon-angle-left', 'prev');
+        // 为'下一个'按钮添加点击事件处理程序
+        buttonNext.addEventListener('click', function () {
+            // 移除上一个按钮的'disabled'，'icon-angle-left'和'prev'类名
+            buttonPrev.classList.remove('disabled', 'icon-angle-left', 'prev');
+            // 添加'icon-angle-left'和'prev'类名
+            buttonPrev.classList.add('icon-angle-left', 'prev');
 
-        // 移除当前按钮的'icon-angle-right'和'next'类名
-        buttonNext.classList.remove('iconfont', 'icon-angle-right', 'next');
-        // 添加'disabled'，'iconfont'，'icon-angle-right'和'next'类名
-        buttonNext.classList.add('disabled', 'iconfont', 'icon-angle-right', 'next');
+            // 移除当前按钮的'icon-angle-right'和'next'类名
+            buttonNext.classList.remove('iconfont', 'icon-angle-right', 'next');
+            // 添加'disabled'，'iconfont'，'icon-angle-right'和'next'类名
+            buttonNext.classList.add('disabled', 'iconfont', 'icon-angle-right', 'next');
 
-        BoxList.style.transform = 'translateX(-1240px)'
-    });
-}
-// 调用函数，启动按钮切换功能
-toggleButtons();
+            BoxList.style.transform = 'translateX(-1240px)'
+        });
+    }
+    // 调用函数，启动按钮切换功能
+    toggleButtons();
+})();
