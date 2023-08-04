@@ -92,7 +92,7 @@
     // 定义函数来隐藏所有li元素
     function hideAllElements() {
         for (let i = 0; i < li.length; i++) {
-            li[i].style.display = "none";
+            // li[i].style.display = "none";
         }
     }
 
