@@ -183,53 +183,33 @@
     let data = [
         {
             src: './images/Popular_brands_1.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
         },
         {
             src: './images/Popular_brands_2.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
         },
         {
             src: './images/Popular_brands_3.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
         },
         {
             src: './images/Popular_brands_4.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
         },
         {
             src: './images/Popular_brands_5.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
         },
         {
-            src: './images/Popular_brands_1.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
+            src: 'http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/bb0411c8-0407-460b-9db2-e1ca377d7227.jpg',
         },
         {
-            src: './images/Popular_brands_2.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
+            src: 'http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/7f6a7b20-7902-4b43-b9c5-f33151ef1334.jpg',
         },
         {
-            src: './images/Popular_brands_3.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
+            src: 'http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/b0941d16-a466-4f23-bbf4-90f818298abb.jpg',
         },
         {
-            src: './images/Popular_brands_4.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
+            src: 'http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/4f998a72-6c37-44fc-bb28-c017541868e8.jpg',
         },
         {
-            src: './images/Popular_brands_5.jpg',
-            uname: '特惠推荐',
-            desc: '它们最实惠'
+            src: 'http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/07b52b63-d128-491f-b55e-ad9192a6baeb.jpg',
         },
     ]
 
@@ -810,16 +790,44 @@
 })();
 
 
-// 获取点击下一个元素
-const buttonPrev = document.querySelector('.disabled.iconfont.icon-angle-left.prev');
+//封装'热门品牌'函数并实现平滑切换轮播图效果
+function toggleButtons() {
+    // 获取'热门品牌'点击上一个元素
+    const buttonPrev = document.querySelector('.disabled.iconfont.icon-angle-left.prev');
+    // 获取'热门品牌'点击下一个元素
+    const buttonNext = document.querySelector('.iconfont.icon-angle-right.next');
+    //获取热门品牌ul元素
+    const BoxList = document.querySelector('.box .list')
 
-buttonPrev.addEventListener('click', function () {
+    // 为'上一个'按钮添加点击事件处理程序
+    buttonPrev.addEventListener('click', function (e) {
+        // 移除当前按钮的'prev'和'icon-angle-left'类名
+        buttonPrev.classList.remove('icon-angle-left', 'prev');
+        // 添加'disabled'，'iconfont'，'icon-angle-left'和'prev'类名
+        buttonPrev.classList.add('disabled', 'iconfont', 'icon-angle-left', 'prev');
 
-});
+        // 移除下一个按钮的'disabled'，'icon-angle-right'和'next'类名
+        buttonNext.classList.remove('disabled', 'icon-angle-right', 'next');
+        // 添加'iconfont'，'icon-angle-right'和'next'类名
+        buttonNext.classList.add('iconfont', 'icon-angle-right', 'next');
 
-// 获取点击下一个元素
-const buttonNext = document.querySelector('.iconfont.icon-angle-right.next');
+        BoxList.style.transform = 'translateX(0px)'
+    });
 
-buttonNext.addEventListener('click', function () {
+    // 为'下一个'按钮添加点击事件处理程序
+    buttonNext.addEventListener('click', function () {
+        // 移除上一个按钮的'disabled'，'icon-angle-left'和'prev'类名
+        buttonPrev.classList.remove('disabled', 'icon-angle-left', 'prev');
+        // 添加'icon-angle-left'和'prev'类名
+        buttonPrev.classList.add('icon-angle-left', 'prev');
 
-});
+        // 移除当前按钮的'icon-angle-right'和'next'类名
+        buttonNext.classList.remove('iconfont', 'icon-angle-right', 'next');
+        // 添加'disabled'，'iconfont'，'icon-angle-right'和'next'类名
+        buttonNext.classList.add('disabled', 'iconfont', 'icon-angle-right', 'next');
+
+        BoxList.style.transform = 'translateX(-1240px)'
+    });
+}
+// 调用函数，启动按钮切换功能
+toggleButtons();

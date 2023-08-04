@@ -758,7 +758,7 @@ app-body {
   margin-left: 5px;
 }
 
-.iconfont.disabled {
+.iconfont.disabled[data-v-c2737746] {
   background: #ccc;
   cursor: not-allowed
 }
