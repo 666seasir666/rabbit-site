@@ -711,6 +711,35 @@ input {
   height: 100%;
 }
 
+/* 添加过渡效果 */
+.carousel-body li {
+  transition: opacity .5s linear;
+  /* 这里可以根据需要调整过渡时间和效果 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* 设置当前活动项 */
+.carousel-body li.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* 以下样式可以根据您的需求进行调整，比如设置轮播图的尺寸、间距等等 */
+.carousel-body {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.carousel-body li {
+  width: 100%;
+  height: 100%;
+}
+
 .xtx-carousel .carousel-item.fade {
   opacity: 1;
   z-index: 1;

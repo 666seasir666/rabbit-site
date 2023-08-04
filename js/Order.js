@@ -92,7 +92,7 @@
     // 定义函数来隐藏所有li元素
     function hideAllElements() {
         for (let i = 0; i < li.length; i++) {
-            // li[i].style.display = "none";
+            li[i].style.display = "none";
         }
     }
 
@@ -133,4 +133,91 @@
         localStorage.removeItem('xtx-uname')
         render()  //重新渲染
     })
+})();
+
+
+
+
+// 封装立即执行函数，避免全局命名冲突
+(function () {
+    // 获取上一张按钮
+    const BtnPrev = document.querySelector('.carousel-btn.prev');
+
+    // 获取下一张按钮
+    const BtnNext = document.querySelector('.carousel-btn.next');
+
+    // 获取幻灯片元素
+    function getSlides() {
+        return document.querySelectorAll('.carousel-body li');
+    }
+
+    // 获取小圆点元素
+    function getIndicators() {
+        return Array.from(document.querySelectorAll('.carousel-indicator span')).map((indicator, i) => {
+            indicator.setAttribute('data-index', i);
+            return indicator;
+        });
+    }
+
+
+    const slides = getSlides();
+    const indicators = getIndicators();
+    let currentIndex = 0;
+
+    // 更新小圆点的显示
+    // 更新小圆点的显示
+    function updateIndicators() {
+        indicators.forEach((indicator, i) => {
+            if (i === currentIndex) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+
+
+    
+
+    // 显示指定索引的幻灯片，隐藏其他幻灯片
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+        updateIndicators(); // 更新小圆点显示
+    }
+
+    // 显示下一张幻灯片
+    function showNextSlide() {
+        slides[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].style.display = 'block';
+        updateIndicators(); // 更新小圆点显示
+    }
+
+
+    // 显示上一张幻灯片
+    function showPrevSlide() {
+        slides[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        slides[currentIndex].style.display = 'block';
+        updateIndicators(); // 更新小圆点显示
+    }
+
+
+    // 给按钮添加点击事件监听器
+    BtnNext.addEventListener('click', showNextSlide);
+    BtnPrev.addEventListener('click', showPrevSlide);
+
+    // 给小圆点添加点击事件监听器
+    indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            // console.log('Clicked index:', i);
+            showSlide(i);
+        });
+    });
+
+
+    // 显示初始幻灯片和小圆点
+    showSlide(currentIndex);
 })();
