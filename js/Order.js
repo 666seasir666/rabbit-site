@@ -19,7 +19,7 @@
             src2: ['https://yanxuan-item.nosdn.127.net/c3b4e3640f77bb72ec4d043ef2e2a0cd.png'],
             src3: ['https://yanxuan-item.nosdn.127.net/4e1cc37a232f1ae4e6fa61287c06f76f.png'],
             uname: '儿童多色圆领印花短袖T恤110-160cm',
-            money: '59.0'
+            money: '139.0'
         },
         {
             src0: ['https://yanxuan-item.nosdn.127.net/767fc11b88b1e7b795319cd78c65f72f.png'],
@@ -27,7 +27,7 @@
             src2: ['https://yanxuan-item.nosdn.127.net/930cac1a40b3979a25d55df8c5d8870d.png'],
             src3: ['https://yanxuan-item.nosdn.127.net/09ae7983369f9ddfba6ea96670ca84a7.png'],
             uname: '儿童多色圆领印花短袖T恤110-160cm',
-            money: '59.0'
+            money: '149.0'
         },
         {
             src0: ['https://yanxuan-item.nosdn.127.net/efcbdbe9a56035d74cb3f48a0c5e8e87.png'],
@@ -35,7 +35,7 @@
             src2: ['https://yanxuan-item.nosdn.127.net/6ede0ef5cda2a9425713e4fc7f6cc604.png'],
             src3: ['https://yanxuan-item.nosdn.127.net/ea1ec719c9a860eedb0cb7ef31ada4af.png'],
             uname: '儿童多色圆领印花短袖T恤110-160cm',
-            money: '59.0'
+            money: '159.0'
         },
         {
             src0: ['https://yanxuan-item.nosdn.127.net/6aefeb26228f4dbd09c18f7501c854a0.png'],
@@ -43,7 +43,7 @@
             src2: ['https://yanxuan-item.nosdn.127.net/637cca030b42a0f9bcb315d1150b0a9d.jpg'],
             src3: ['https://yanxuan-item.nosdn.127.net/7ce1695c9540786d0a8bb302f40fddd3.png'],
             uname: '儿童多色圆领印花短袖T恤110-160cm',
-            money: '59.00'
+            money: '169.00'
         },
     ]
 
@@ -159,12 +159,10 @@
         });
     }
 
-
     const slides = getSlides();
     const indicators = getIndicators();
     let currentIndex = 0;
 
-    // 更新小圆点的显示
     // 更新小圆点的显示
     function updateIndicators() {
         indicators.forEach((indicator, i) => {
@@ -175,9 +173,6 @@
             }
         });
     }
-
-
-    
 
     // 显示指定索引的幻灯片，隐藏其他幻灯片
     function showSlide(index) {
@@ -195,7 +190,6 @@
         updateIndicators(); // 更新小圆点显示
     }
 
-
     // 显示上一张幻灯片
     function showPrevSlide() {
         slides[currentIndex].style.display = 'none';
@@ -204,7 +198,6 @@
         updateIndicators(); // 更新小圆点显示
     }
 
-
     // 给按钮添加点击事件监听器
     BtnNext.addEventListener('click', showNextSlide);
     BtnPrev.addEventListener('click', showPrevSlide);
@@ -212,12 +205,46 @@
     // 给小圆点添加点击事件监听器
     indicators.forEach((indicator, i) => {
         indicator.addEventListener('click', () => {
-            // console.log('Clicked index:', i);
             showSlide(i);
         });
     });
 
-
     // 显示初始幻灯片和小圆点
     showSlide(currentIndex);
 })();
+
+(function () {
+    // 获取小圆点元素
+    function getIndicators() {
+        return Array.from(document.querySelectorAll('.carousel-indicator span')).map((indicator, i) => {
+            indicator.setAttribute('data-index', i);
+            return indicator;
+        });
+    }
+
+    // 获取小圆点元素
+    const indicators = getIndicators();
+
+    // 给小圆点添加点击事件监听器
+    indicators.forEach((indicator) => {
+        indicator.addEventListener('click', () => {
+            // 获取点击的索引值
+            const clickedIndex = parseInt(indicator.getAttribute('data-index'));
+
+            // 移除所有索引的active类名
+            indicators.forEach((ind) => {
+                ind.classList.remove('active');
+            });
+
+            // 添加点击的索引的active类名
+            indicator.classList.add('active');
+
+            // 显示点击索引对应的幻灯片
+            showSlide(clickedIndex);
+        });
+    });
+
+    // 在这里添加之前的幻灯片切换和更新小圆点的功能代码
+
+})();
+
