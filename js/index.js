@@ -704,6 +704,26 @@
 
     // 为"douyinSvgElement"添加点击事件监听器，当被点击时调用"handleClick"函数
     douyinSvgElement.addEventListener("click", handleClick);
+
+    // 底部在线客服和问题反馈跳转连接，封装点击事件处理函数
+    function handleLinkClick(event, targetURL) {
+        event.preventDefault();
+        window.location.href = targetURL;
+    }
+
+    // 获取 .zaixiankefu 元素
+    const zaixiankefu = document.querySelector('.zaixiankefu');
+    // 添加点击事件监听器，并指向封装的处理函数
+    zaixiankefu.addEventListener('click', function (event) {
+        handleLinkClick(event, 'https://chat.ss-chat.com/service/fjlrax');
+    });
+
+    // 获取 .wentifankui 元素
+    const wentifankui = document.querySelector('.wentifankui');
+    // 添加点击事件监听器，并指向封装的处理函数
+    wentifankui.addEventListener('click', function (event) {
+        handleLinkClick(event, 'https://chat.ss-chat.com/service/fjlrax');
+    });
 })();
 
 
