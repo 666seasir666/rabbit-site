@@ -240,8 +240,7 @@
             indicator.classList.add('active');
 
             // 显示点击索引对应的幻灯片
-            showSlide(clickedIndex);
+            // showSlide(clickedIndex);
         });
     });
 })();
-
