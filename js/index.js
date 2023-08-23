@@ -670,14 +670,6 @@
             window.location.href = "./login.html"
         }
     }
-
-    // 获取“我的订单”链接元素并为其绑定点击事件
-    const orderLink = document.querySelector('a[href="./Order.html"]')
-
-    orderLink.addEventListener('click', function (event) {
-        event.preventDefault(); // 阻止默认的链接跳转行为
-        checkLogin()
-    });
 })();
 
 // 网页底部SVG图标的点击事件
