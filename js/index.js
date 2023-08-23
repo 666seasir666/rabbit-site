@@ -660,6 +660,7 @@
     function checkLogin() {
         const uname = localStorage.getItem('xtx-uname')
         if (uname) {
+            localStorage.setItem('xtx-loggedIn', 'true'); // 设置登录状态标记
             // 需求:如果用户已登录，直接跳转到我的订单页面
             //问题:即使用户点击我的订单跳转登录界面,当用户登录成功后依然不会跳转我的订单页面,这里有bug
             //原因:登录成功后还是调用本地储存变量重新定向首页页面
